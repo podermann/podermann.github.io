@@ -23,13 +23,13 @@ installaur()
 	cd ..
 }
 
-#echo "enter name:"
-#read username
+echo "enter name:"
+read username
 
-pacman -Syu --noconfirm --needed xorg-server xorg-xinit xorg-xsetroot slock xf86-video-intel xorg-xbacklight neovim git libxinerama libxft libx11 mpv ffmpeg yt-dlp alsa-utils powertop sxhkd thermald termdown man-db man-pages neofetch archlinux-keyring powertop bc openssh virt-viewer calcurse redshift jq dash sxiv fzfpolybar ttf-roboto-mono
+pacman -Syu --noconfirm --needed xorg-server xorg-xinit xorg-xsetroot slock xf86-video-intel xorg-xbacklight neovim git libxinerama libxft libx11 mpv ffmpeg yt-dlp alsa-utils powertop sxhkd man-db man-pages neofetch archlinux-keyring powertop bc openssh redshift dash sxiv fzf ttf-roboto-mono
 
-#useradd -mG wheel $username
-#echo "$username	ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers.d/
+useradd -mG wheel $username
+echo "$username	ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers.d/
 
 home=$(sudo -u user bash -c 'echo $HOME')
 src=$home/.local/src
@@ -41,7 +41,6 @@ cd $src
 pwd
 
 
-<<done
 installgit https://git.suckless.org/dwm
 installgit https://git.suckless.org/st
 installgit https://git.suckless.org/dmenu
