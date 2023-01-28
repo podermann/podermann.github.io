@@ -2,7 +2,7 @@
 id -u | grep -qx 0 || exit
 
 
-alias u="sudo -u user bash -c"
+alias u="sudo -u $username bash -c"
 installgit() 
 {
 	url=$1
@@ -31,7 +31,7 @@ pacman -Syu --noconfirm --needed xorg-server xorg-xinit xorg-xsetroot slock xf86
 useradd -mG wheel $username
 echo "$username	ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-$username-install
 
-home=$(sudo -u $username bash -c 'echo $HOME')
+home=$(u 'echo $HOME')
 src=$home/.local/src
 bin=$home/.local/bin
 u "mkdir -p $src"
