@@ -29,9 +29,9 @@ read username
 pacman -Syu --noconfirm --needed xorg-server xorg-xinit xorg-xsetroot slock xf86-video-intel xorg-xbacklight neovim git libxinerama libxft libx11 mpv ffmpeg yt-dlp alsa-utils powertop sxhkd man-db man-pages neofetch archlinux-keyring powertop bc openssh redshift dash sxiv fzf ttf-roboto-mono
 
 useradd -mG wheel $username
-echo "$username	ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers.d/
+echo "$username	ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/10-$username-install
 
-home=$(sudo -u user bash -c 'echo $HOME')
+home=$(sudo -u $username bash -c 'echo $HOME')
 src=$home/.local/src
 bin=$home/.local/bin
 u "mkdir -p $src"
@@ -50,4 +50,4 @@ installaur yay
 u 'yay -S --noconfirm --needed librewolf-bin apulse lf-bin'
 
 u 'cp /etc/X11/xinit/xinitrc ~/.xinitrc'
-done
+
