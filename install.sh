@@ -2,7 +2,7 @@
 id -u | grep -qx 0 || exit
 
 
-alias u="sudo -u $username bash -c"
+
 installgit() 
 {
 	url=$1
@@ -25,6 +25,8 @@ installaur()
 
 echo "enter name:"
 read username
+
+alias u="sudo -u $username bash -c"
 
 pacman -Syu --noconfirm --needed xorg-server xorg-xinit xorg-xsetroot slock xf86-video-intel xorg-xbacklight neovim git libxinerama libxft libx11 mpv ffmpeg yt-dlp alsa-utils powertop sxhkd man-db man-pages neofetch archlinux-keyring powertop bc openssh redshift dash sxiv fzf ttf-roboto-mono
 
